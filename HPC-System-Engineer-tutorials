@@ -1,0 +1,28 @@
+HPC-System-Engineer-GPU tutorials online
+Becoming an HPC (High-Performance Computing) System Engineer with a focus on GPUs requires mastering a blend of hardware architecture, cluster management, and parallel programming. 
+Here are the top online tutorials and resource hubs to get you started:
+🛠️ Cluster Management & Infrastructure
+To manage GPU clusters, you need to understand job scheduling and large-scale hardware orchestration. 
+Slurm Workload Manager Tutorials: Learn the industry standard for managing GPU resources and scheduling jobs.
+HPC.nrw Online Tutorials: Comprehensive guides on Linux in HPC, job scheduling, and profiling tools like Intel VTune.
+UL HPC Tutorials: Hands-on documentation covering cluster setup, storage (Lustre/GPFS), and networking basics.
+Networking for HPC/AI: Community-vetted resources for learning about InfiniBand, RDMA, and high-speed interconnects. 
+
+💻 GPU Programming & Software Stack
+Since NVIDIA dominates the space, their ecosystem is the primary learning path, though AMD is a rising alternative. 
+NVIDIA Deep Learning Institute (DLI): Offers hands-on courses on CUDA C++, multi-GPU scaling, and accelerating applications.
+Coursera GPU Programming Specialization: A structured path covering computer architecture, CUDA, and performance tuning.
+ENCCS Introduction to GPU Programming: A high-level overview of the GPU software ecosystem, including CUDA, ROCm (AMD), and OpenCL.
+NPTEL High Performance Computing: A deep academic dive into parallel algorithms, OpenMP, MPI, and GPGPU programming. 
+
+📊 Performance Analysis & Benchmarking
+Optimizing throughput is the core of an HPC engineer's job. 
+GPU Performance Engineering (NHR@FAU): Advanced tutorials on scaling applications to multiple nodes and performance bottleneck analysis.
+HPC Wiki GPU Tutorial: Practical exercises on thread distribution, shared memory usage, and data layout optimization.
+AMD ROCm Documentation: For those working with AMD Instinct accelerators, their documentation covers performance profiling and multi-node validation. 
+
+📚 Community & Video Guides
+r/HPC Reddit Community: The best place for "real-world" advice on hardware choices and career paths.
+YouTube: High Performance Computing Guide: Visual walkthroughs of compute resources and running your first GPU job. 
+
+Are you looking to focus more on the hardware/sysadmin side (building the clusters) or the software/developer side (writing the code that runs on them)
