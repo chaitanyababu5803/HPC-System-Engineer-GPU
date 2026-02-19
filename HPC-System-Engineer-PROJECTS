@@ -1,0 +1,55 @@
+HPC-System-Engineer
+*****************************
+https://ulhpc-tutorials.readthedocs.io/en/latest/
+https://www.reddit.com/r/HPC/comments/17o0q5d/resources_for_learning_about_hpc_networks_and/
+**************************
+*********************
+BASIC PROJECT WITH CODE
+To gain a practical understanding of HPC systems, you should focus on the "Hello World" of GPU computing: Vector Addition. 
+As an HPC Engineer, your task isn't just writing the math; it's managing the workflow—from writing the kernel to submitting it through a cluster scheduler like Slurm. 
+1. The GPU Code (CUDA C++)
+This script creates a "kernel" that runs on the GPU. Save this as vector_add.cu. 
+cpp
+#include <iostream>
+#include <cuda_runtime.h>
+
+// GPU Kernel: adds two vectors A and B into C
+__global__ void vectorAdd(const float *A, const float *B, float *C, int numElements) {
+    int i = blockDim.x * blockIdx.x + threadIdx.x; // Unique thread index
+    if (i < numElements) C[i] = A[i] + B[i];
+}
+
+int main() {
+    int N = 50000; size_t size = N * sizeof(float);
+    float *h_A = (float *)malloc(size); // Host allocation
+    float *d_A, *d_B, *d_C;
+    cudaMalloc((void **)&d_A, size); // Device allocation
+    // ... Initialize data, cudaMemcpy(HostToDevice), launch kernel, cudaMemcpy(DeviceToHost)
+    cudaFree(d_A); free(h_A);
+    return 0;
+}
+Use code with caution.
+
+2. The HPC Orchestration (Slurm Script)
+Save this as submit_job.sh to request resources and run the code. 
+bash
+#!/bin/bash
+#SBATCH --job-name=gpu_test
+#SBATCH --output=result_%j.log     #
+#SBATCH --gres=gpu:1               # Request 1 GPU
+#SBATCH --partition=gpu
+#SBATCH --time=00:05:00
+
+module load cuda
+nvcc vector_add.cu -o vector_add   #
+./vector_add
+Use code with caution.
+
+3. How to Run It
+Submit: sbatch submit_job.sh
+Monitor: squeue -u $USER
+Analyze: Use nsys profile ./vector_add for performance analysis. 
+eunomia.dev
+eunomia.dev
+ +1
+Would you like to try a Python-based GPU project using CuPy instead of C++?
